@@ -1,0 +1,22 @@
+def get_next():
+    get_next.seed = (get_next.seed*513 + 1)%2**18
+    return 0 if get_next.seed == 0 else (get_next.seed**2%100000 + 1)
+get_next.seed = int(input())
+l = []
+i = 0
+x = get_next()
+t = get_next()
+if x > t:
+        a = x
+else:
+    a = t
+while not t == 0:
+    t = get_next()
+    if  a < t:
+        a = t
+        l = []
+    if a == t:
+        l.append(i+2)
+    i += 1
+
+print(*l)
